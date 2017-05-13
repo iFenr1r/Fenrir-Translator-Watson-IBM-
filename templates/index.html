@@ -106,9 +106,6 @@ $(function(){
 			var e = document.getElementById("target");
 				var target = e.options[e.selectedIndex].value;
 			
-			alert(source);
-			alert(target);
-
 			$.ajax({
 				url: '/translate',
 				data: $('form').serialize(),
@@ -127,4 +124,6 @@ $(function(){
 		})
 	});
 </script>
+</body>
+</html>
 
