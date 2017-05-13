@@ -1,4 +1,4 @@
-# Fenrir Translator - IBM Watson
+# Fenrir Tradutor - IBM Watson
 Aplicação utilizando ferramentas do Bluemix, da IBM
 
 How-to:
