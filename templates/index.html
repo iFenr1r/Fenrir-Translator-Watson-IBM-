@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	     <meta charset="utf-8">
+	 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <meta name="description" content="">
@@ -37,11 +37,15 @@
 				<option value="pt">Português</option>
 				<option value="en">Inglês</option>
 				<option value="es">Espanhol</option>
+				<option value="fr">Francês</option>
+				<option value="de">Alemão</option>
 			</select>
 			<select name="target" id="target" class="selbox">
 				<option value="pt">Português</option>
 				<option value="en">Inglês</option>
 				<option value="es">Espanhol</option>
+				<option value="fr">Francês</option>
+				<option value="de">Alemão</option>
 			</select>
 			<textarea name="texto" type="text" id="mySelect" onkeyup="myFunction()"></textarea>
 			<button type="button">Traduzir </button>
@@ -72,17 +76,37 @@ $(document).ready(function() {
             if ($(this).prop("id") != thisID) {
                 if (selected === 'es') {
                 	$("option[value='" + 'pt' + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + 'fr' + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + 'de' + "']", $(this)).prop("disabled", true);
                 	$("option[value='" + selected + "']", $(this)).prop("disabled", true);
                 	$("option[value='" + 'en' + "']", $(this)).prop("selected", true);
            		}
             	else if (selected === 'pt') {
                 	$("option[value='" + 'es' + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + 'fr' + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + 'de' + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + selected + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + 'en' + "']", $(this)).prop("selected", true);
+            	}
+            	else if (selected === 'fr') {
+                	$("option[value='" + 'es' + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + 'pt' + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + 'de' + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + selected + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + 'en' + "']", $(this)).prop("selected", true);
+            	}
+            	else if (selected === 'de') {
+                	$("option[value='" + 'es' + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + 'fr' + "']", $(this)).prop("disabled", true);
+                	$("option[value='" + 'pt' + "']", $(this)).prop("disabled", true);
                 	$("option[value='" + selected + "']", $(this)).prop("disabled", true);
                 	$("option[value='" + 'en' + "']", $(this)).prop("selected", true);
             	}
             	else if (selected === 'en') {
                 	$("option[value='" + 'pt' + "']", $(this)).prop("disabled", false);
                 	$("option[value='" + 'es' + "']", $(this)).prop("disabled", false);
+                	$("option[value='" + 'fr' + "']", $(this)).prop("disabled", false);
+                	$("option[value='" + 'de' + "']", $(this)).prop("disabled", false);
                 	$("option[value='" + selected + "']", $(this)).prop("disabled", true);
                 	$("option[value='" + 'pt' + "']", $(this)).prop("selected", true);
             	}
@@ -90,6 +114,8 @@ $(document).ready(function() {
                 	$("option[value='" + 'pt' + "']", $(this)).prop("disabled", false);
                 	$("option[value='" + 'es' + "']", $(this)).prop("disabled", false);
                 	$("option[value='" + 'en' + "']", $(this)).prop("disabled", false);
+                	$("option[value='" + 'fr' + "']", $(this)).prop("disabled", false);
+                	$("option[value='" + 'de' + "']", $(this)).prop("disabled", false);
             	}
             }                        
         });
@@ -111,8 +137,11 @@ $(function(){
 				data: $('form').serialize(),
 				type: 'POST',
 				success: function(response){
+
+					response = response.replace(/["]/g, '');
 					
-					response = response.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+					
+					response = response.replace(/[\/\\:#+$%'"*<>{}]/g, '');
 					document.getElementById("demo").innerHTML = "Traduzido: " + response;
 					console.log(response)
 
