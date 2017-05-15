@@ -14,4 +14,4 @@ How-to:
 
 
 
-*OBS a opção de identificar o idioma ainda não funciona, estarei atualizando quando finalizar a função.
+*Tradutor suporta apenas traduções do Inglês -> Para qualquer idioma. E de qualquer idioma -> para o Inglês. Não suporta outras combinações, como por exemplo Alemão -> Francês, ou Português -> Espanhol
