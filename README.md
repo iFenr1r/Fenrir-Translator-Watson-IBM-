@@ -15,3 +15,12 @@ How-to:
 
 
 *Tradutor suporta apenas traduções do Inglês -> Para qualquer idioma. E de qualquer idioma -> para o Inglês. Não suporta outras combinações, como por exemplo Alemão -> Francês, ou Português -> Espanhol
+
+Exemplo:
+	Escolha o idioma inglês para ser traduzido ao Alemão
+	Digite o seguinte texto: "Boa tarde"
+	Clique  traduzir
+	Será traduzido logo abaixo da caixa de texto
+
+	Caso não saiba o idioma digitado, selecione a opção identificar, que será identificado e traduzido em seguida, automaticamente.
+	
