@@ -1,4 +1,4 @@
-from flask import Flask, current_app, render_template, request, json
+from flask import Flask, current_app, render_template, request, json, jsonify
 from translate import tradutor
 
 app = Flask(__name__)
@@ -14,7 +14,8 @@ def translate():
     target = request.form['target'];
     
     traduzido = tradutor(texto,source,target)
-    return json.dumps({'':'','':traduzido});
+    
+    return jsonify(traduzido);
     print(traduzido)
 
 if __name__ == "__main__":
