@@ -8,6 +8,10 @@ app = Flask(__name__)
 def hello_world():
     return render_template('index.html')
 
+@app.route('/sobre.html')
+def sobre():
+    return render_template('sobre.html')
+
 @app.route('/translate', methods=['POST', 'GET'])
 def translate():
     texto = request.form['texto'];
